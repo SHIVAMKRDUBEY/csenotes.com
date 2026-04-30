@@ -1,115 +1,193 @@
-🌐 Live URLs
-Frontend (Website):
-https://csenotes.com
+# 🚀 CSE Notes – Full Stack Project
 
-🚀 CSE Notes – Full Setup Guide (Local + Production)
-🧑‍💻 PART 1: LOCAL MACHINE SETUP (Development)
-📌 Requirements
+A complete **Full Stack Web Application** for providing Notes, Interview Questions, and Company-wise preparation content.
 
-Install these first:
+---
 
-Node.js (v18+ recommended)
-Java (JDK 17)
-Git
+# 🌐 Live Website
 
-Check:
+👉 https://csenotes.com
 
-node -v
-java -version
-git --version
-🧱 1. BACKEND SETUP (Spring Boot)
-📁 Step 1: Open backend project
+---
+
+# 📌 Project Overview
+
+CSE Notes is a platform where users can:
+
+* 📚 Read subject-wise notes
+* 💼 Prepare interview questions
+* 🏢 Explore company-wise interview rounds
+* 🔍 Access topic-wise structured content
+
+---
+
+# 🧠 Technologies Used (Detailed)
+
+## 🔹 Frontend
+
+* **Next.js 16** (App Router)
+* **React.js**
+* **JavaScript (ES6+)**
+* **CSS / Tailwind (if used)**
+* **Dynamic Routing (SEO friendly URLs)**
+* **Server Components + Client Components**
+
+## 🔹 Backend
+
+* **Spring Boot (Java)**
+* **REST API**
+* **JWT Authentication (if used)**
+* **Layered Architecture**
+
+  * Controller
+  * Service
+  * Repository
+
+## 🔹 Database
+
+* **MySQL / PostgreSQL** (depending on your setup)
+* JPA / Hibernate ORM
+
+## 🔹 DevOps / Deployment
+
+* **Ubuntu Server (AWS EC2)**
+* **Nginx (Reverse Proxy)**
+* **PM2 (Process Manager)**
+* **SSL (Let's Encrypt)**
+
+## 🔹 SEO & Analytics
+
+* Dynamic Sitemap (Next.js)
+* Meta Tags Optimization
+* Google Analytics (GA4)
+* Facebook Pixel
+
+---
+
+# 🖥️ Local Setup (Run on Your Machine)
+
+## 🔹 1. Clone Repository
+
+```bash
+git clone https://github.com/your-username/csenotes.git
+cd csenotes
+```
+
+---
+
+## 🔹 2. Backend Setup (Spring Boot)
+
+```bash
 cd backend
-▶️ Step 2: Run backend
+```
 
-If using Maven:
+### ▶ Install Dependencies
 
-./mvnw spring-boot:run
+Make sure you have:
 
-Or:
+* Java 17+
+* Maven
 
+```bash
+mvn clean install
+```
+
+### ▶ Run Backend
+
+```bash
 mvn spring-boot:run
-🌐 Step 3: Test API
+```
 
-Open in browser:
+Backend will run on:
 
-http://localhost:8086/api/txtnotes
+```
+http://localhost:8086
+```
 
-👉 If data shows → backend is working ✅
+---
 
-🌐 2. FRONTEND SETUP (Next.js)
-📁 Step 1: Open frontend
-cd next
-🔐 Step 2: Create .env.local
+## 🔹 3. Frontend Setup (Next.js)
+
+```bash
+cd frontend
+npm install
+```
+
+### ▶ Environment File
+
+Create `.env.local`
+
+```env
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8086/api
-📦 Step 3: Install dependencies
-npm install
-▶️ Step 4: Run frontend
+NEXT_PUBLIC_GA_ID=YOUR_GA_ID
+NEXT_PUBLIC_FB_PIXEL_ID=YOUR_PIXEL_ID
+```
+
+---
+
+### ▶ Run Frontend
+
+```bash
 npm run dev
-🌍 Step 5: Open website
+```
+
+Frontend runs on:
+
+```
 http://localhost:3000
-🔄 LOCAL FLOW
-Browser → Next.js (3000) → API (8086) → Database
-🌍 PART 2: PRODUCTION DEPLOYMENT (SERVER)
-🧱 1. SERVER SETUP (Ubuntu)
-sudo apt update && sudo apt upgrade -y
-Install Node.js
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install -y nodejs
-Install Java
-sudo apt install openjdk-17-jdk -y
-Install Nginx
-sudo apt install nginx -y
-Install PM2
+```
+
+---
+
+# 🌍 Production Deployment (Ubuntu Server)
+
+## 🔹 1. Install Required Tools
+
+```bash
+sudo apt update
+sudo apt install nginx git nodejs npm openjdk-17-jdk -y
 npm install -g pm2
-⚙️ 2. BACKEND DEPLOYMENT
-📁 Step 1: Upload JAR
-cd /home/ubuntu
-mkdir backend
-cd backend
+```
 
-Upload .jar file
+---
 
-▶️ Step 2: Run backend
-java -jar your-backend.jar
-🔁 Step 3: Run with PM2
-pm2 start "java -jar /home/ubuntu/backend/your-backend.jar" --name backend
-pm2 save
-pm2 startup
-🧪 Test backend
-curl http://127.0.0.1:8086/api/txtnotes
-🌐 3. FRONTEND DEPLOYMENT
-📁 Step 1: Upload project
-cd /home/ubuntu
-git clone <your-repo>
-cd next
-🔐 Step 2: Environment
-NEXT_PUBLIC_API_BASE_URL=https://csenotes.com/api
-📦 Step 3: Install
+## 🔹 2. Build Frontend
+
+```bash
+cd frontend
 npm install
-🏗️ Step 4: Build
 npm run build
-▶️ Step 5: Run
+```
+
+---
+
+## 🔹 3. Start Frontend with PM2
+
+```bash
 pm2 start npm --name "nextjs" -- start
 pm2 save
-🌍 4. NGINX SETUP (IMPORTANT)
-sudo nano /etc/nginx/sites-available/default
+pm2 startup
+```
 
-Paste this:
+---
 
+## 🔹 4. Run Backend
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+(Or use PM2 / systemd for production)
+
+---
+
+## 🔹 5. Nginx Configuration
+
+```nginx
 server {
     listen 80;
     server_name csenotes.com www.csenotes.com;
-    return 301 https://csenotes.com$request_uri;
-}
-
-server {
-    listen 443 ssl http2;
-    server_name www.csenotes.com;
-
-    ssl_certificate /etc/letsencrypt/live/csenotes.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/csenotes.com/privkey.pem;
-
     return 301 https://csenotes.com$request_uri;
 }
 
@@ -120,56 +198,93 @@ server {
     ssl_certificate /etc/letsencrypt/live/csenotes.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/csenotes.com/privkey.pem;
 
-    # API
     location /api/ {
-        proxy_pass http://127.0.0.1:8086/;
-        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:8086;
     }
 
-    # Uploads
-    location /uploads/ {
-        alias /home/ubuntu/csenotes/uploads/;
-    }
-
-    # Frontend
     location / {
         proxy_pass http://127.0.0.1:3000;
-        proxy_set_header Host $host;
     }
 }
-🔁 Restart nginx
+```
+
+---
+
+## 🔹 6. Restart Nginx
+
+```bash
 sudo nginx -t
 sudo systemctl restart nginx
-🔐 5. ENABLE HTTPS
-sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d csenotes.com -d www.csenotes.com
-🧪 6. FINAL TEST
-✅ Website
-https://csenotes.com
-✅ API
-https://csenotes.com/api/txtnotes
-✅ Sitemap
-https://csenotes.com/sitemap.xml
-❌ COMMON PROBLEMS
-🔴 API not working
+```
 
-👉 Check:
+---
 
-curl http://127.0.0.1:8086/api/txtnotes
-🔴 403 Error
+# 🧩 Sitemap & SEO
 
-👉 Fix nginx (remove wrong rewrites)
+* Dynamic sitemap generated via Next.js
+* Includes:
 
-🔴 Images not loading
-location /uploads/ {
-    alias /home/ubuntu/csenotes/uploads/;
-}
-🔴 Sitemap empty
+  * Notes
+  * Topics
+  * Interview Questions
+  * Company pages
 
-👉 API not working → fix backend
+Example:
 
-🔄 RESTART ALL
-pm2 restart all
-sudo systemctl restart nginx
-🎯 FINAL ARCHITECTURE
-User → Nginx → Next.js → API → Spring Boot → Database
+```
+/notes/operating-system/process-management.htm
+/interview/java/oops-concepts.htm
+```
+
+---
+
+# ⚠️ Common Issues & Fixes
+
+## ❌ API 403 Error
+
+* Fix Nginx rewrite rules
+* Ensure `/api/` is directly proxied
+
+## ❌ Sitemap not updating
+
+* Add:
+
+```js
+export const dynamic = "force-dynamic";
+```
+
+## ❌ Data not loading
+
+* Check:
+
+```env
+NEXT_PUBLIC_API_BASE_URL
+```
+
+---
+
+# 📦 Features
+
+* SEO Optimized URLs
+* Fast Loading (SSR + caching)
+* Structured Data
+* Clean UI
+* Scalable Architecture
+
+---
+
+# 👨‍💻 Author
+
+Developed by **Saurabh and Shivam**
+
+---
+
+# ⭐ Contribution
+
+Feel free to fork, improve, and contribute 🚀
+
+---
+
+# 📜 License
+
+This project is for educational purposes.
