@@ -1,0 +1,219 @@
+.company-page-wrapper {
+  min-height: 100vh;
+  background-color: rgb(61, 47, 58);
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.company-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.company-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.company-title {
+  margin: 0 0 15px 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ff4d4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.company-count {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+}
+
+.company-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 10px;
+}
+
+.company-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.company-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #3498db;
+}
+
+.company-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  z-index: 2;
+}
+
+.company-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+.company-image {
+  width: 100%;
+  height: 100%;
+  background-color: #ecf0f1;  
+  object-fit: contain; 
+  transition: all 0.6s ease;
+}
+
+.company-card:hover .company-image {
+  transform: scale(1.1) rotate(2deg);
+  filter: brightness(1.1);
+}
+
+.company-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(41, 128, 185, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.company-card:hover .company-overlay {
+  opacity: 1;
+}
+
+.view-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.company-card:hover .view-text {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.company-content {
+  padding: 20px;
+}
+
+.company-name {
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.company-card:hover .company-name {
+  color: #3498db;
+}
+
+.company-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.company-action {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.company-loading, .company-error {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+@media (max-width: 1024px) {
+  .company-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .company-container {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .company-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .company-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .company-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .company-container {
+    padding: 10px;
+  }
+
+  .company-title {
+    font-size: 1.8rem;
+  }
+}

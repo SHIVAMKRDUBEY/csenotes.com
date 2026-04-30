@@ -1,0 +1,231 @@
+.interview-page-wrapper {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 20px;
+}
+
+.interview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.page-title {
+  margin: 0 0 15px 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.title-icon {
+  font-size: 2.8rem;
+  animation: float 3s ease-in-out infinite;
+  color: #3498db;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.subjects-count {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.page-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 10px 10px;
+}
+
+.subject-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.subject-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #3498db;
+}
+
+.subject-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  z-index: 2;
+}
+
+.subject-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #ecf0f1;
+}
+
+.subject-image {
+  width: 100%;
+  height: 100%;
+  background-color: #ecf0f1;  
+  object-fit: contain; 
+  transition: all 0.6s ease;
+}
+
+.subject-card:hover .subject-image {
+  transform: scale(1.1) rotate(2deg);
+  filter: brightness(1.1);
+}
+
+.subject-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.85), rgba(46, 204, 113, 0.85));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.subject-card:hover .subject-overlay {
+  opacity: 1;
+}
+
+.view-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.subject-card:hover .view-text {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.subject-content {
+  padding: 20px;
+}
+
+.subject-title {
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.subject-card:hover .subject-title {
+  color: #3498db;
+}
+
+.subject-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.subject-action {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .subjects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* gap कम किया */
+    padding: 0 10px; /* left-right padding थोड़ा कम */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .subjects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* gap ज्यादा compact */
+    padding: 0 5px; /* left-right padding कम */
+  }
+
+  .page-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .title-icon {
+    font-size: 2.5rem;
+  }
+
+  .subjects-count {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .subject-image-wrapper {
+    height: 180px;
+  }
+}
+@media (max-width: 576px) {
+  .interview-page-wrapper {
+    padding: 20px 10px;
+  }
+
+  .interview-container {
+    padding: 0 10px;
+  }
+}

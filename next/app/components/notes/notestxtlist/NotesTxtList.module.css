@@ -1,0 +1,155 @@
+.notes-page-wrapper {
+  min-height: 100vh;
+  background-color: rgb(61, 47, 58);
+  padding: 20px;
+}
+
+.notes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.title-icon {
+  font-size: 2.8rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.notes-count {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+}
+
+.page-subtitle {
+  color: #dcdcdc;
+  font-size: 1.1rem;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.note-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.note-image-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.note-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.note-card:hover .note-image {
+  transform: scale(1.1);
+}
+
+.note-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 152, 219, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.note-card:hover .note-overlay {
+  opacity: 1;
+}
+
+.view-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.note-content {
+  padding: 20px;
+}
+
+.note-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.note-footer {
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.note-action {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+@media (max-width: 1024px) {
+  .notes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .notes-page-wrapper {
+    padding: 20px 10px; /* chhote devices pe side ka space kam kare */
+  }
+  .notes-container {
+    padding: 0 10px;
+  }
+}

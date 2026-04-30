@@ -1,0 +1,262 @@
+/* ================= GENERAL STYLES ================= */
+.footer {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 45%, #db2777 100%);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  padding: 60px 20px 35px;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+/* ================= BRAND ================= */
+.brand {
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.95rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.desc {
+  opacity: 0.92;
+  line-height: 1.6;
+  font-size: 0.97rem;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 15px;
+}
+
+.socials a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Mobile: 2 columns */
+  gap: 40px 30px;
+  justify-items: center; /* Mobile: center items by default */
+}
+
+.grid > div {
+  text-align: center; /* Mobile default */
+}
+
+.grid h4 {
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.grid a,
+.grid span {
+  display: block;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 8px;
+  font-size: 0.96rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grid a:hover {
+  color: white;
+}
+/* ================= CONTACT ================= */
+.contact-section p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  white-space: normal; /* Mobile wrap allowed */
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word; /* Long email/phone wrap properly */
+}
+
+.contact-section p span {
+  font-size: 1.2rem;
+  min-width: 24px;
+}
+
+.contactLink {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+/* ================= BOTTOM ================= */
+.bottom {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.93rem;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.badges span {
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+/* ================= DESKTOP ================= */
+@media (min-width: 769px) {
+  .main {
+    flex-direction: row;
+    gap: 60px;
+  }
+
+  .brand {
+    text-align: left;
+  }
+
+  .logo {
+    justify-content: flex-start;
+  }
+
+  .desc {
+    margin: 0;
+  }
+
+  .socials {
+    justify-content: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 35px;
+    justify-items: start;
+  }
+
+  .grid > div {
+    text-align: left;
+  }
+
+  .grid a,
+  .grid span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .grid > div.contact-section {
+    width: auto;
+    text-align: left;
+  }
+
+  .bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .badges {
+    justify-content: flex-start;
+  }
+}
+
+.email {
+  word-break: break-all; /* mobile pe break ho sake */
+}
+/* ================= DESKTOP ================= */
+ @media (min-width: 769px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px 35px; 
+    justify-items: start;
+  }
+
+  .grid > div {
+    text-align: left;
+  }
+
+  .grid h4 {
+    margin-bottom: 20px; 
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .grid a,
+  .grid span {
+    display: block;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 12px; 
+    font-size: 0.97rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .grid a:hover {
+    color: white;
+  }
+
+  /* Contact section align */
+  .grid > div.contact-section {
+    width: auto;
+    text-align: left;
+  }
+}
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+  /* Top row 3 columns */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Resources, Support, Legal */
+    gap: 20px;
+    justify-items: start;
+  }
+
+  .grid > div {
+    text-align: left;
+  }
+
+  .contactSectionMobile {
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .contactSectionMobile p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

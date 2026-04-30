@@ -1,0 +1,97 @@
+/* AboutUs.module.css */
+
+.aboutContainer {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.aboutContainer h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.whatWeOffer {
+  margin: 2rem 0;
+}
+
+.whatWeOffer h2 {
+  font-size: 1.8rem;
+  color: #ff7e5f;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.whatWeOffer ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.whatWeOffer li {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem;
+  border-left: 4px solid #ff7e5f;
+  background: linear-gradient(90deg, #fff1f0, #ffe8e0);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatWeOffer li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+}
+
+.mission {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 12px;
+}
+
+.mission h2 {
+  font-size: 1.8rem;
+  color: #6a11cb;
+  margin-bottom: 0.8rem;
+}
+
+.mission p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+.contactInfo h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.contactInfo p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}

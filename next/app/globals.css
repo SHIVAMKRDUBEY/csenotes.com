@@ -1,0 +1,96 @@
+/* ===== Reset & Base Fix ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Root Variables ===== */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+}
+
+/* ===== Main Layout ===== */
+html, body, #__next {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #171717;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Fix mobile 100vh issue */
+body.app-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh; /* Mobile safe viewport */
+}
+
+main.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ===== Responsive Media ===== */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Ad Sections ===== */
+.ad-top,
+.ad-container {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.ad-container {
+  margin: 20px 0;
+  transition: height 0.3s ease;
+}
+
+/* Fixed Ad Sizes (Safe Version) */
+.ad-desktop {
+  width: 728px;
+  max-width: 100%;
+}
+
+.ad-mobile {
+  width: 300px;
+  max-width: 100%;
+}
+
+.ad-sidebar {
+  width: 300px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+/* ===== Responsive Visibility ===== */
+@media (max-width: 768px) {
+  .ad-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .ad-mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,67 @@
+.profileCard {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4f46e5;
+  margin-bottom: 15px;
+}
+
+.profileTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.profileInfo {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.profileInfo p {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+}
+
+.profileInfo p:last-child {
+  border-bottom: none;
+}
+
+.profileInfo strong {
+  color: #111827;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

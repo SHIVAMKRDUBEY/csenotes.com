@@ -1,0 +1,218 @@
+/* app/components/navbar/navbar.module.css */
+
+ .navbar {
+  background: #0b132b;
+  color: white;
+  padding: 10px 20px;
+  font-family: "Segoe UI", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+} 
+/* ---------- TOP ROW ---------- */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(90deg, #fca311, #ff6b6b, #00f5d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Desktop Links */
+.linksContainer {
+  display: flex;
+  gap: 25px;
+}
+
+.linksContainer a {
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.linksContainer a:hover,
+.linksContainer a.active {
+  color: #fca311;
+}
+
+/* Login button */
+.login {
+  background: #fca311;
+  color: #0b132b;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.login:hover {
+  transform: scale(1.05);
+  background: #ffb347;
+  cursor: pointer;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profilePic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #fca311;
+  object-fit: cover;
+}
+
+.adminName {
+  font-weight: bold;
+}
+
+.logout {
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout:hover {
+  color: darkred;
+  transform: scale(1.05);
+}
+/* Dropdown menu */
+.dropdownMenu {
+  position: absolute;
+  top: 50px; /* profile pic ke neeche */
+  right: 0;
+  background: #0b132b;
+  border: 1px solid #fca311;
+  border-radius: 6px;
+  padding: 10px 0;
+  min-width: 160px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 1001;
+}
+
+.dropdownMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownMenu li {
+  padding: 8px 16px;
+}
+
+.dropdownMenu li a,
+.dropdownMenu li button {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+  display: block;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownMenu li a:hover,
+.dropdownMenu li button:hover {
+  color: #fca311;
+  transform: scale(1.02);
+}
+
+/* ---------- MOBILE LINKS ---------- */
+.mobileLinks {
+  display: none;
+}
+/* ---------- MOBILE VIEW ---------- */
+@media (max-width: 768px) {
+  .topRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 1.5rem;
+      margin-left: -10px; /* 👈 ये add करो */
+  }
+
+  .profilePic {
+    width: 28px;
+    height: 28px;
+  }
+
+  .linksContainer a {
+    display: none;
+  }
+
+  .linksContainer a:nth-child(2) {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+
+  .profile,
+  .login {
+    margin-left: auto;
+  }
+
+  .mobileLinks {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin-top: 6px;
+    padding: 0;
+  }
+
+  .mobileLinks li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    font-size: 1rem;
+  }
+
+  .mobileLinks li a:hover,
+  .mobileLinks li a.active {
+    color: #fca311;
+  }
+
+  /* ----- Fix Navbar for Mobile ----- */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  /* content ke liye spacing */
+  body {
+    padding-top: 70px; /* navbar ki height ke barabar adjust karein */
+  }
+}
