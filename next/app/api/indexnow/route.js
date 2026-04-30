@@ -18,7 +18,7 @@ export async function POST(req) {
         host: "csenotes.com",
         key: process.env.INDEXNOW_KEY,
         keyLocation:
-          "https://csenotes.com/212681e11a5c4b92be3f9068ec085814.txt",
+          "https://csenotes.com/212681e11e3f9068ec085814.txt",
         urlList: [url],
       }),
     });
