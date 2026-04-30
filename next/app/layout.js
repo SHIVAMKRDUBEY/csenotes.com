@@ -350,7 +350,7 @@ export default function RootLayout({ children }) {
             "url": "https://csenotes.com/",
             "logo": "https://csenotes.com/logo.png",
             "sameAs": [
-              "https://www.facebook.com/profile.php?id=61573476514228"
+              "https://www.facebook.com/profile.php?id=615734514228"
             ]
           }
           `}
