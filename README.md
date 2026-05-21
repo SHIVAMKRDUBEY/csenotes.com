@@ -275,7 +275,7 @@ NEXT_PUBLIC_API_BASE_URL
 
 # 👨‍💻 Author
 
-Developed by **Saurabh and Shivam**
+Developed by **Shivam and group**
 
 ---
 
