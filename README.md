@@ -36,7 +36,7 @@ CSE Notes is a platform where users can:
 
 * **Spring Boot (Java)**
 * **REST API**
-* **JWT Authentication (if used)**
+* **JWT Authentication (Used)**
 * **Layered Architecture**
 
   * Controller
